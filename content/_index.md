@@ -1,6 +1,8 @@
 ---
-title: 🪴 Quartz 3.
-enableToc: false
+title: "Home"
+enableToc: true
+tags:
+- test-tag
 ---
 
 Host your second brain and [digital garden](https://jzhao.xyz/posts/networked-thought) for free. Quartz features
