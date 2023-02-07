@@ -1,7 +1,7 @@
 ---
-title: "Obsidian Vault Integration"
+title: "Obsidian"
 tags:
-- setup
+- notes
 weight: -3
 ---
 

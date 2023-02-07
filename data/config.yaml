@@ -1,5 +1,5 @@
-name: Jacky Zhao
-enableToc: true
+name: Jay Parmar
+enableToc: false
 openToc: false
 enableLinkPreview: true
 enableLatex: true
@@ -12,18 +12,15 @@ enableContextualBacklinks: true
 enableRecentNotes: false
 enableGitHubEdit: true
 enableMermaid: true
-GitHubLink: https://github.com/jackyzha0/quartz/tree/hugo/content
+GitHubLink: https://github.com/tan86/tan86.github.io/tree/hugo/content
 search:
   enableSemanticSearch: false
   operandApiKey: "REPLACE-WITH-YOUR-OPERAND-API-KEY"
   operandIndexId: "REPLACE-WITH-YOUR-OPERAND-INDEX-ID"
 description:
-  Host your second brain and digital garden for free. Quartz features extremely fast full-text search,
-  Wikilink support, backlinks, local graph, tags, and link previews.
+  My Digital Garden
 page_title:
-  "🪴 Quartz 3.3"
+  "Tan86"
 links:
-  - link_name: Twitter
-    link: https://twitter.com/_jzhao
   - link_name: GitHub
-    link: https://github.com/jackyzha0
+    link: https://github.com/tan86
