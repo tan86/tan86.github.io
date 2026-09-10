@@ -1,3 +1,8 @@
 @use "./variables.scss" as *;
 
 // put your custom CSS here!
+
+// Keep the footer links, but remove Quartz's generated attribution line.
+//#quartz-body footer > p {
+//  display: none;
+//}

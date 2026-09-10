@@ -1,13 +1,12 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Quartz 5
+  pageTitle: Jay Parmar
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
-  analytics:
-    provider: plausible
+  analytics: null
   locale: en-US
-  baseUrl: tan86.github.io
+  baseUrl: jayparmar.cc
   ignorePatterns:
     - private
     - templates
@@ -16,7 +15,7 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Schibsted Grotesk
+      header: EB Garamond
       body: Source Sans Pro
       code: IBM Plex Mono
     colors:
@@ -99,7 +98,7 @@ plugins:
     enabled: false
     order: 92
   - source: "@quartz-community/quartz-fonts"
-    enabled: true
+    enabled: false
   - source: "@quartz-themes/core"
     enabled: false
     options:
@@ -220,10 +219,9 @@ plugins:
     enabled: true
     options:
       links:
-        GitHub: https://github.com/jackyzha0/quartz
-        Discord Community: https://discord.gg/cRFFHYye7t
+        GitHub: https://github.com/tan86
     layout:
-      position: footer
+      position: left
       priority: 50
   - source: "@quartz-community/recent-notes"
     enabled: false
