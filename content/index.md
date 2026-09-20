@@ -11,12 +11,13 @@ first post. a little poem so you can reflect on your reflog.
 > and it brought lots of merge conflicts.
 > 
 > Then i realised
-> she's accepting everyone's PR.
+> she was accepting everyone's PR.
 > 
-> so i got my HEAD detached,
-> cause she's inSensitive to mY cAse,
-> like Mac.
-
+> she's insensitive to my case,
+> like mac
+> 
+> so i detached my HEAD,
+> went my separate way
 ---
 
 ## Connect
