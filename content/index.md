@@ -4,7 +4,7 @@ title: Welcome to my Digital Garden
 
 Hey there! I'm **Jay Parmar**.
 
-I don't know what to post first or where to start. so, i have written some stupid nerdy free-style and bad poem. maybe you like it, maybe not, who cares.
+first post. a little poem so you can reflect on your reflog.
 
 > She was my origin, my source of truth.
 > many tried to push her,
