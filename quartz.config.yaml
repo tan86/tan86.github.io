@@ -89,7 +89,7 @@ plugins:
     enabled: false
     order: 85
   - source: "@quartz-community/hard-line-breaks"
-    enabled: false
+    enabled: true
     order: 90
   - source: "@quartz-community/ox-hugo"
     enabled: false
@@ -114,10 +114,11 @@ plugins:
     order: 45
   - source: "@quartz-community/encrypted-pages"
     enabled: true
+    order: 95
     options:
       iterations: 600000
       passwordField: password
-      unlistWhenEncrypted: false
+      unlistWhenEncrypted: true
       outputPath: static/encryptedContentIndex.json
   - source: "@quartz-community/stacked-pages"
     enabled: false
@@ -220,6 +221,7 @@ plugins:
     options:
       links:
         GitHub: https://github.com/tan86
+        LinkedIn: https://www.linkedin.com/in/jayparmar86/
     layout:
       position: left
       priority: 50
