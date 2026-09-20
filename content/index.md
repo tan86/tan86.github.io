@@ -22,4 +22,4 @@ I don't know what to post first or where to start. so, i have written some stupi
 - **LinkedIn:** [linkedin.com/in/jayparmar86](https://www.linkedin.com/in/jayparmar86/)
 - **Email:** [jayparmar86@pm.me](mailto:jayparmar86@pm.me)
 
-> *Before you ask about the [[86]]: no, I don't know either.*
+> _Before you ask about the [[86]]: no, I don't know either._
