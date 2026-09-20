@@ -9,7 +9,10 @@ first post. a little poem so you can reflect on your reflog.
 > She was my origin, my source of truth.
 > many tried to push her,
 > and it brought lots of merge conflicts.
-> I then realized she's accepting everyone's PR.
+> 
+> Then i realised
+> she's accepting everyone's PR.
+> 
 > so i got my HEAD detached,
 > cause she's inSensitive to mY cAse,
 > like Mac.
