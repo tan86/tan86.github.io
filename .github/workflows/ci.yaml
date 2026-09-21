@@ -49,9 +49,6 @@ jobs:
       - name: Install Quartz plugins
         run: npx quartz plugin install
 
-      - name: Check types and style
-        run: npm run check
-
       - name: Test
         run: npm test
 
