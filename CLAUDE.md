@@ -57,7 +57,7 @@ Console output: errors and warnings always print. `--verbose` adds `console.log`
 Known issues these checks currently report (as of 2026-09-30; update when fixed):
 
 - Mobile: at 390px the page scrolls horizontally by 300px because the footer sits in the left sidebar, which becomes the top bar on mobile.
-- Dark mode toggle stops working after unlocking an encrypted page and then navigating (each click toggles twice).
+- Dark mode and reader mode toggles stop working after unlocking an encrypted page and then navigating (each click toggles twice). Root cause and fix options are in `BACKLOG.md`.
 - The explorer plugin logs debug `console.log` lines on every navigation, and warns `[Explorer] No trie or empty children` when the explorer is empty.
 
 ## Layout

@@ -25,8 +25,23 @@ Output: a short comparison with a recommendation, before building anything.
 
 At 390px the page scrolls sideways by 300px, because the footer sits in the left sidebar, which becomes the top bar on mobile. Found by `.claude/scripts/check-site.mjs`.
 
-### Dark mode toggle stops working after unlocking an encrypted page
+### Dark mode and reader mode toggles stop working after unlocking an encrypted page
 
-After unlocking the 86 page and navigating home, each click toggles the theme twice, so it looks like nothing happens. Root-cause investigation in progress. Found by `.claude/scripts/check-site.mjs`.
+**Status:** root cause found; fix not applied yet.
+
+After you unlock an encrypted page (86), each click on dark mode or reader mode toggles twice, so nothing seems to happen. It stays broken for the rest of the browser session, including reloads, because the password is cached in sessionStorage. Found by `.claude/scripts/check-site.mjs`.
+
+**Root cause:**
+
+- `@quartz-community/encrypted-pages` 0.1.1 dispatches a `render` event after every navigation once a password is cached. Its content-index sync (`G()` in `encrypted.inline.ts`) dispatches it even when nothing new was added.
+- `@quartz-community/darkmode` and `reader-mode` run their setup on both `nav` and `render`. Each run adds another click listener, and cleanup only happens on `prenav`, so two listeners end up bound.
+- Other plugins (explorer, graph, search, etc.) also run twice per navigation, which is wasted work; search still works.
+- Version 1.0.0 of both plugins has the same code, so upgrading doesn't fix it.
+
+**Fix options:**
+
+1. Upstream fix in encrypted-pages (recommended): only dispatch `render` / `content-index-updated` when new slugs were added. This was verified in the browser by patching the built script in flight; both toggles then work in every state.
+2. Also make darkmode and reader-mode setup idempotent upstream (defense in depth).
+3. Until upstream ships: apply option 1 locally with `patch-package` on `node_modules/@quartz-community/encrypted-pages/dist/` so it survives reinstalls.
 
 ## Done
