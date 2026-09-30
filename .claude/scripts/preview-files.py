@@ -29,7 +29,8 @@ with open(os.path.join(ROOT, STUB), "w") as f:
         '<p><a href="./home">Open the site preview</a></p></body></html>\n'
     )
 
-files = {"home": {"from": "index.html", "contentType": "text/html"}}
+# "home" is where the stub sends the browser; "index" is what search previews fetch.
+files = {k: {"from": "index.html", "contentType": "text/html"} for k in ("home", "index")}
 for d, _, names in os.walk(ROOT):
     for n in names:
         p = os.path.relpath(os.path.join(d, n), ROOT)
