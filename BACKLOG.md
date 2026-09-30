@@ -27,7 +27,7 @@ At 390px the page scrolls sideways by 300px, because the footer sits in the left
 
 ### Dark mode and reader mode toggles stop working after unlocking an encrypted page
 
-**Status:** root cause found; fix not applied yet.
+**Status:** fixed locally with a `patch-package` patch (`patches/@quartz-community+encrypted-pages+0.1.1.patch`, applied on `npm install` via `postinstall`). Still open: report upstream and drop the local patch once a fixed version ships.
 
 After you unlock an encrypted page (86), each click on dark mode or reader mode toggles twice, so nothing seems to happen. It stays broken for the rest of the browser session, including reloads, because the password is cached in sessionStorage. Found by `.claude/scripts/check-site.mjs`.
 

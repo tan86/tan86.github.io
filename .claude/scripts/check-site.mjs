@@ -12,7 +12,7 @@
 //
 // Steps: load home (title, h1, body web font actually loaded), open every internal
 // link on the home page via the SPA, unlock encrypted pages, return home via the
-// site title, search, toggle dark mode, mobile layout.
+// site title, search, toggle dark mode and reader mode, mobile layout.
 // Exit code 1 if any check failed or a page logged a real error.
 
 import { mkdirSync, readFileSync } from "node:fs"
@@ -141,6 +141,17 @@ await step("dark mode", async () => {
   console.log(`  theme ${before} -> ${after}`)
   check(before !== after, "dark mode toggle switches the theme")
   await page.click("button.darkmode")
+})
+
+await step("reader mode", async () => {
+  const mode = () => page.evaluate(() => document.documentElement.getAttribute("reader-mode"))
+  const before = await mode()
+  await page.click("button.readermode")
+  await page.waitForTimeout(500)
+  const after = await mode()
+  console.log(`  reader-mode ${before} -> ${after}`)
+  check(before !== after, "reader mode toggle switches the mode")
+  await page.click("button.readermode")
 })
 
 await step("mobile", async () => {
