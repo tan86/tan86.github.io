@@ -62,6 +62,7 @@ Known issues these checks currently report (as of 2026-09-30; update when fixed)
 
 ## Layout
 
+- `BACKLOG.md`: planned work and ideas. Add new requests there and move items to Done when they ship.
 - `content/`: the notes (Markdown). `index.md` is the home page.
 - `quartz.config.yaml`: site title, base URL, theme fonts and colors, plugins
 - `quartz/`: the Quartz framework. Avoid editing it unless the task needs it.
