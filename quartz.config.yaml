@@ -223,7 +223,7 @@ plugins:
         GitHub: https://github.com/tan86
         LinkedIn: https://www.linkedin.com/in/jayparmar86/
     layout:
-      position: left
+      position: footer
       priority: 50
   - source: "@quartz-community/recent-notes"
     enabled: false

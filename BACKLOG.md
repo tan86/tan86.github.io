@@ -21,10 +21,6 @@ Research before choosing:
 
 Output: a short comparison with a recommendation, before building anything.
 
-### Mobile layout overflows horizontally
-
-At 390px the page scrolls sideways by 300px, because the footer sits in the left sidebar, which becomes the top bar on mobile. Found by `.claude/scripts/check-site.mjs`.
-
 ### Dark mode and reader mode toggles stop working after unlocking an encrypted page
 
 **Status:** fixed locally with a `patch-package` patch (`patches/@quartz-community+encrypted-pages+0.1.1.patch`, applied on `npm install` via `postinstall`). Still open: report upstream and drop the local patch once a fixed version ships.
@@ -45,3 +41,5 @@ After you unlock an encrypted page (86), each click on dark mode or reader mode 
 3. Until upstream ships: apply option 1 locally with `patch-package` on `node_modules/@quartz-community/encrypted-pages/dist/` so it survives reinstalls.
 
 ## Done
+
+- 2026-09-30: **Mobile layout overflowed horizontally.** At 390px the page scrolled sideways by 300px because the footer sat in the left sidebar, which becomes the top bar on mobile. Moved the footer to the bottom of the page on all screen sizes (`position: footer` in `quartz.config.yaml`, the Quartz default). `check-site.mjs` passes the mobile check.
