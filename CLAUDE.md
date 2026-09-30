@@ -37,7 +37,7 @@ Rules:
 
 Only a push to `main` deploys (`deploy-pages.yaml`). The other workflows are guarded by `github.repository == 'jackyzha0/quartz'` and never run here. Work on a branch and nothing goes live.
 
-- **Private preview (cloud sessions):** after `npm run build`, publish `public/` to the private preview artifact https://claude.ai/artifact/3DTHucvUVU5PnZuN4iigZz. Use the Artifact tool with `file_path: public/index.html`, `root: public`, `url` set to the artifact above, and `files` from `python3 .claude/scripts/preview-files.py`. Hashed asset names change between builds, so pass `--prev <old-map.json>` to remove stale files.
+- **Private preview (cloud sessions):** after `npm run build`, run `python3 .claude/scripts/preview-files.py` and publish to the private preview artifact https://claude.ai/artifact/3DTHucvUVU5PnZuN4iigZz with the Artifact tool: `file_path: public/_preview.html`, `root: public`, `url` set to the artifact above, and the printed map as `files`. The script writes that stub page because the artifact wraps its main page in a skeleton that overrides Quartz's fonts and colors; the stub redirects to the real home page, published unwrapped as `home`. Hashed asset names change between builds, so pass `--prev <old-map.json>` to remove stale files. Don't run `npm run dev` before publishing: the dev server rewrites `public/`. Run `npm run build` again first.
 - **Local live dev (own machine):** `npm ci && npm run dev`, then open http://localhost:8080. It rebuilds and reloads on every save.
 
 ## Layout
