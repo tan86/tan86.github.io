@@ -6,7 +6,7 @@ Ideas and work for the site, newest first. Move an item to Done (with the date a
 
 ### CMS for managing content from anywhere
 
-**Status:** research needed first.
+**Status:** research done: see `research/cms-options.md`. Waiting on two decisions: repo privacy (drafts and page passwords are public while the repo is public) and whether to go with the recommended Sveltia CMS.
 
 I want a CMS I can use from any platform and browser, ideally installable like a PWA, to manage and add content, write drafts, and publish.
 
