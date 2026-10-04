@@ -232,6 +232,7 @@ plugins:
       links:
         GitHub: https://github.com/tan86
         LinkedIn: https://www.linkedin.com/in/jayparmar86/
+        Email: mailto:jayparmar86@pm.me
     layout:
       position: footer
       priority: 50
@@ -273,7 +274,7 @@ plugins:
       head: HEAD → jay
     layout:
       position: beforeBody
-      priority: 8
+      priority: 12
   - source: ./local-plugins/garden-map
     enabled: true
     layout:
