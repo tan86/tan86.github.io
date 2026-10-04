@@ -4,6 +4,14 @@ Ideas and work for the site, newest first. Move an item to Done (with the date a
 
 ## Open
 
+### Commit Graph follow-ups
+
+From the redesign's finish review and documenter (2026-10-04); none block shipping.
+
+- Theme `tertiary` is the tech lane colour, so plugins using it (explorer active link, graph visited nodes) paint tech teal outside the graph.
+- Two date formats: header lines show "Sep 10, 2026", the garden map shows ISO "2026-09-10".
+- Ideas: colour graph-view nodes and backlink dots by lane; a lane rail down note pages; light main up to HEAD on hover; play the lane-draw animation once per session; a one-line intent per lane in Jay's words instead of the identical stub text.
+
 ### CMS for managing content from anywhere
 
 **Status:** research done: see `research/cms-options.md`. Waiting on two decisions: repo privacy (drafts and page passwords are public while the repo is public) and whether to go with the recommended Sveltia CMS.
@@ -42,4 +50,5 @@ After you unlock an encrypted page (86), each click on dark mode or reader mode 
 
 ## Done
 
+- 2026-10-04: **Redesigned the site as a commit graph** (impeccable, "Commit Graph" direction). Home is the HEAD commit plus a `git log --graph` garden map; notes read like `git show`; single column with a top bar. Passed the finish review (disposition: ship). See `DESIGN.md`.
 - 2026-09-30: **Mobile layout overflowed horizontally.** At 390px the page scrolled sideways by 300px because the footer sat in the left sidebar, which becomes the top bar on mobile. Moved the footer to the bottom of the page on all screen sizes (`position: footer` in `quartz.config.yaml`, the Quartz default). `check-site.mjs` passes the mobile check.

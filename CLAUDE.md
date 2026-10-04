@@ -68,8 +68,10 @@ Known issues these checks currently report (as of 2026-09-30; update when fixed)
 
 - `BACKLOG.md`: planned work and ideas. Add new requests there and move items to Done when they ship.
 - `research/`: research write-ups behind backlog decisions (not published; only `content/` is built)
-- `content/`: the notes (Markdown). `index.md` is the home page.
+- `content/`: the notes (Markdown). `index.md` is the home page. Notes go in a lane folder (`poems/`, `tech/`, `essays/`, `logs/`) with a `date:` in frontmatter, which the garden map sorts by.
 - `quartz.config.yaml`: site title, base URL, theme fonts and colors, plugins
+- `quartz/styles/custom.scss`: the whole site look (Commit Graph world). Unlayered, so it overrides plugin CSS.
+- `local-plugins/`: local Quartz components, hand-written ESM with no build step: `garden-map` (home map as `git log --graph`, lanes = top-level content folders) and `commit-header` (commit line under each title). Edit `dist/components/index.js` directly.
 - `quartz/`: the Quartz framework. Avoid editing it unless the task needs it.
 - `.github/workflows/`: CI and GitHub Pages deploy
 - `.claude/skills/impeccable/`: the impeccable design skill (Claude Code build, see below)
@@ -82,4 +84,4 @@ Known issues these checks currently report (as of 2026-09-30; update when fixed)
 - Installed with `npx skills add pbakaus/impeccable`, then replaced with upstream's Claude Code build and cleaned of Codex, Cursor, Copilot, Grok and Gemini instructions.
 - Do not run `npx skills update`: `skills-lock.json` points at the Codex build and would overwrite the adaptation. To upgrade, copy upstream's `.claude/skills/impeccable` and `.claude/agents/impeccable-*.md` again and redo the cleanup.
 - The design-check hook is off; `/impeccable hooks on` enables it in `.claude/settings.local.json`.
-- There is no `PRODUCT.md` yet; `/impeccable init` creates it.
+- `PRODUCT.md` (product truth) and `DESIGN.md` + `.impeccable/design.json` (the Commit Graph visual system) are the design authority. The direction contract is in `.impeccable/surfaces/content-index-md.md`. Read them before any UI change.

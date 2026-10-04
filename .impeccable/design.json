@@ -1,0 +1,462 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-04T19:31:05+00:00",
+  "title": "Design System: Jay Parmar",
+  "extensions": {
+    "colorMeta": {
+      "link-blue": {
+        "role": "primary",
+        "displayName": "Link Blue",
+        "tonalRamp": [
+          "oklch(15% 0.170 264.3)",
+          "oklch(26% 0.170 264.3)",
+          "oklch(37% 0.170 264.3)",
+          "oklch(48% 0.170 264.3)",
+          "oklch(59% 0.170 264.3)",
+          "oklch(70% 0.170 264.3)",
+          "oklch(82% 0.170 264.3)",
+          "oklch(95% 0.170 264.3)"
+        ]
+      },
+      "link-blue-dark": {
+        "role": "primary",
+        "displayName": "Link Blue (dark)",
+        "tonalRamp": [
+          "oklch(15% 0.120 266.3)",
+          "oklch(26% 0.120 266.3)",
+          "oklch(37% 0.120 266.3)",
+          "oklch(48% 0.120 266.3)",
+          "oklch(59% 0.120 266.3)",
+          "oklch(70% 0.120 266.3)",
+          "oklch(82% 0.120 266.3)",
+          "oklch(95% 0.120 266.3)"
+        ]
+      },
+      "tertiary-teal": {
+        "role": "tertiary",
+        "displayName": "Tertiary Teal",
+        "tonalRamp": [
+          "oklch(15% 0.093 181.2)",
+          "oklch(26% 0.093 181.2)",
+          "oklch(37% 0.093 181.2)",
+          "oklch(48% 0.093 181.2)",
+          "oklch(59% 0.093 181.2)",
+          "oklch(70% 0.093 181.2)",
+          "oklch(82% 0.093 181.2)",
+          "oklch(95% 0.093 181.2)"
+        ]
+      },
+      "lane-poems": {
+        "role": "lane",
+        "displayName": "Poems Rose",
+        "tonalRamp": [
+          "oklch(15% 0.170 7.5)",
+          "oklch(26% 0.170 7.5)",
+          "oklch(37% 0.170 7.5)",
+          "oklch(48% 0.170 7.5)",
+          "oklch(59% 0.170 7.5)",
+          "oklch(70% 0.170 7.5)",
+          "oklch(82% 0.170 7.5)",
+          "oklch(95% 0.170 7.5)"
+        ]
+      },
+      "lane-tech": {
+        "role": "lane",
+        "displayName": "Tech Teal",
+        "tonalRamp": [
+          "oklch(15% 0.093 181.2)",
+          "oklch(26% 0.093 181.2)",
+          "oklch(37% 0.093 181.2)",
+          "oklch(48% 0.093 181.2)",
+          "oklch(59% 0.093 181.2)",
+          "oklch(70% 0.093 181.2)",
+          "oklch(82% 0.093 181.2)",
+          "oklch(95% 0.093 181.2)"
+        ]
+      },
+      "lane-essays": {
+        "role": "lane",
+        "displayName": "Essays Mustard",
+        "tonalRamp": [
+          "oklch(15% 0.116 69.2)",
+          "oklch(26% 0.116 69.2)",
+          "oklch(37% 0.116 69.2)",
+          "oklch(48% 0.116 69.2)",
+          "oklch(59% 0.116 69.2)",
+          "oklch(70% 0.116 69.2)",
+          "oklch(82% 0.116 69.2)",
+          "oklch(95% 0.116 69.2)"
+        ]
+      },
+      "lane-logs": {
+        "role": "lane",
+        "displayName": "Logs Indigo",
+        "tonalRamp": [
+          "oklch(15% 0.170 290.6)",
+          "oklch(26% 0.170 290.6)",
+          "oklch(37% 0.170 290.6)",
+          "oklch(48% 0.170 290.6)",
+          "oklch(59% 0.170 290.6)",
+          "oklch(70% 0.170 290.6)",
+          "oklch(82% 0.170 290.6)",
+          "oklch(95% 0.170 290.6)"
+        ]
+      },
+      "lane-poems-dark": {
+        "role": "lane",
+        "displayName": "Poems Rose (dark)",
+        "tonalRamp": [
+          "oklch(15% 0.162 1.5)",
+          "oklch(26% 0.162 1.5)",
+          "oklch(37% 0.162 1.5)",
+          "oklch(48% 0.162 1.5)",
+          "oklch(59% 0.162 1.5)",
+          "oklch(70% 0.162 1.5)",
+          "oklch(82% 0.162 1.5)",
+          "oklch(95% 0.162 1.5)"
+        ]
+      },
+      "lane-tech-dark": {
+        "role": "lane",
+        "displayName": "Tech Teal (dark)",
+        "tonalRamp": [
+          "oklch(15% 0.125 180.5)",
+          "oklch(26% 0.125 180.5)",
+          "oklch(37% 0.125 180.5)",
+          "oklch(48% 0.125 180.5)",
+          "oklch(59% 0.125 180.5)",
+          "oklch(70% 0.125 180.5)",
+          "oklch(82% 0.125 180.5)",
+          "oklch(95% 0.125 180.5)"
+        ]
+      },
+      "lane-essays-dark": {
+        "role": "lane",
+        "displayName": "Essays Mustard (dark)",
+        "tonalRamp": [
+          "oklch(15% 0.141 79.3)",
+          "oklch(26% 0.141 79.3)",
+          "oklch(37% 0.141 79.3)",
+          "oklch(48% 0.141 79.3)",
+          "oklch(59% 0.141 79.3)",
+          "oklch(70% 0.141 79.3)",
+          "oklch(82% 0.141 79.3)",
+          "oklch(95% 0.141 79.3)"
+        ]
+      },
+      "lane-logs-dark": {
+        "role": "lane",
+        "displayName": "Logs Indigo (dark)",
+        "tonalRamp": [
+          "oklch(15% 0.153 295.3)",
+          "oklch(26% 0.153 295.3)",
+          "oklch(37% 0.153 295.3)",
+          "oklch(48% 0.153 295.3)",
+          "oklch(59% 0.153 295.3)",
+          "oklch(70% 0.153 295.3)",
+          "oklch(82% 0.153 295.3)",
+          "oklch(95% 0.153 295.3)"
+        ]
+      },
+      "pager": {
+        "role": "neutral",
+        "displayName": "Pager",
+        "tonalRamp": [
+          "oklch(15% 0.002 165.1)",
+          "oklch(26% 0.002 165.1)",
+          "oklch(37% 0.002 165.1)",
+          "oklch(48% 0.002 165.1)",
+          "oklch(59% 0.002 165.1)",
+          "oklch(70% 0.002 165.1)",
+          "oklch(82% 0.002 165.1)",
+          "oklch(95% 0.002 165.1)"
+        ]
+      },
+      "pager-dark": {
+        "role": "neutral",
+        "displayName": "Pager (dark)",
+        "tonalRamp": [
+          "oklch(15% 0.006 236.9)",
+          "oklch(26% 0.006 236.9)",
+          "oklch(37% 0.006 236.9)",
+          "oklch(48% 0.006 236.9)",
+          "oklch(59% 0.006 236.9)",
+          "oklch(70% 0.006 236.9)",
+          "oklch(82% 0.006 236.9)",
+          "oklch(95% 0.006 236.9)"
+        ]
+      },
+      "rule-gray": {
+        "role": "neutral",
+        "displayName": "Rule Gray",
+        "tonalRamp": [
+          "oklch(15% 0.006 170.4)",
+          "oklch(26% 0.006 170.4)",
+          "oklch(37% 0.006 170.4)",
+          "oklch(48% 0.006 170.4)",
+          "oklch(59% 0.006 170.4)",
+          "oklch(70% 0.006 170.4)",
+          "oklch(82% 0.006 170.4)",
+          "oklch(95% 0.006 170.4)"
+        ]
+      },
+      "muted-ink": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "tonalRamp": [
+          "oklch(15% 0.012 173.9)",
+          "oklch(26% 0.012 173.9)",
+          "oklch(37% 0.012 173.9)",
+          "oklch(48% 0.012 173.9)",
+          "oklch(59% 0.012 173.9)",
+          "oklch(70% 0.012 173.9)",
+          "oklch(82% 0.012 173.9)",
+          "oklch(95% 0.012 173.9)"
+        ]
+      },
+      "body-ink": {
+        "role": "neutral",
+        "displayName": "Body Ink",
+        "tonalRamp": [
+          "oklch(15% 0.009 219.8)",
+          "oklch(26% 0.009 219.8)",
+          "oklch(37% 0.009 219.8)",
+          "oklch(48% 0.009 219.8)",
+          "oklch(59% 0.009 219.8)",
+          "oklch(70% 0.009 219.8)",
+          "oklch(82% 0.009 219.8)",
+          "oklch(95% 0.009 219.8)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "oklch(15% 0.007 229.3)",
+          "oklch(26% 0.007 229.3)",
+          "oklch(37% 0.007 229.3)",
+          "oklch(48% 0.007 229.3)",
+          "oklch(59% 0.007 229.3)",
+          "oklch(70% 0.007 229.3)",
+          "oklch(82% 0.007 229.3)",
+          "oklch(95% 0.007 229.3)"
+        ]
+      },
+      "lane-main": {
+        "role": "lane",
+        "displayName": "Main",
+        "note": "Bound to --dark: equals ink in light mode and ink-dark in dark mode."
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page titles, including the home HEAD subject."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "In-note h2; the garden map heading uses it at 800."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "h3."
+      },
+      "site-name": {
+        "displayName": "Site name",
+        "purpose": "Top bar name only."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Note text in the 46rem column; links and strong at 700."
+      },
+      "body-lead": {
+        "displayName": "Body lead",
+        "purpose": "Home intro, home blockquote, poem paragraphs (ink)."
+      },
+      "meta": {
+        "displayName": "Meta",
+        "purpose": "Commit line, Date line and property lines under a title."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Ref pills; map hashes and dates at 0.75-0.78rem."
+      }
+    },
+    "shadows": [
+      {
+        "name": "node-halo",
+        "value": "0 0 0 3px var(--light)",
+        "purpose": "Zero-offset pager ring separating a commit node from rails behind it."
+      },
+      {
+        "name": "head-ring",
+        "value": "0 0 0 3px var(--light), 0 0 0 4.5px var(--lane-main)",
+        "purpose": "Double ring marking the HEAD node beside the home title."
+      },
+      {
+        "name": "stub-ring",
+        "value": "0 0 0 1.5px var(--c) inset, 0 0 0 3px var(--light)",
+        "purpose": "Hollow node for a lane with no commits yet."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The only easing; all transitions and reveals."
+      },
+      {
+        "name": "rail-grow",
+        "value": "0.9s scaleY from top",
+        "purpose": "Main draws down from HEAD on load (home)."
+      },
+      {
+        "name": "gutter-reveal",
+        "value": "0.6s clip-path, delay 0.15s + i*70ms",
+        "purpose": "Garden map gutters reveal row by row."
+      },
+      {
+        "name": "lane-focus",
+        "value": "0.25s opacity/width/scale",
+        "purpose": "Hovered lane to 2.5px, others to 18%, node scale 1.35."
+      },
+      {
+        "name": "drawer",
+        "value": "0.28s transform",
+        "purpose": "Explorer drawer slide-in."
+      },
+      {
+        "name": "link",
+        "value": "0.2s color, text-decoration-color",
+        "purpose": "Link hover."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "value": "max-width: 800px"
+      },
+      {
+        "name": "tablet",
+        "value": "800px–1200px"
+      },
+      {
+        "name": "desktop",
+        "value": "min-width: 1200px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Ref Pill",
+      "kind": "chip",
+      "refersTo": "ref-pill",
+      "description": "Lane label and HEAD marker; lane-tinted border and fill, mono label.",
+      "html": "<span class=\"ds-ref\" style=\"--c:#c42a5c\">poems</span> <span class=\"ds-ref\">HEAD → jay</span>",
+      "css": ".ds-ref{display:inline-flex;align-items:center;gap:.4em;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.75rem;font-weight:600;line-height:1;color:#121618;white-space:nowrap;padding:.3em .65em .3em .55em;border:1px solid color-mix(in srgb,var(--c,#121618) 55%,transparent);background:color-mix(in srgb,var(--c,#121618) 9%,transparent);border-radius:999px}.ds-ref::before{content:'';width:.55em;height:.55em;border-radius:50%;background:var(--c,#121618)}"
+    },
+    {
+      "name": "Commit Line",
+      "kind": "custom",
+      "refersTo": "commit-line",
+      "description": "Header lines under every title: lane node, commit hash, ref pill, then Date.",
+      "html": "<div class=\"ds-cl-wrap\"><p class=\"ds-cl\"><span class=\"ds-cl-node\"></span>commit <code class=\"ds-cl-hash\">d4059ac</code> <span class=\"ds-ref\" style=\"--c:#c42a5c\">poems</span></p><p class=\"ds-cl\">Date: Sep 21, 2026, 1 min read</p></div>",
+      "css": ".ds-cl-wrap{background:#f4f6f5;padding:12px}.ds-cl{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem .6rem;margin:0 0 .35rem;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.8rem;color:#626b68}.ds-cl-node{width:9px;height:9px;border-radius:50%;background:#c42a5c}.ds-cl-hash{color:#121618;font-weight:600;font-family:inherit}.ds-ref{display:inline-flex;align-items:center;gap:.4em;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.75rem;font-weight:600;line-height:1;color:#121618;white-space:nowrap;padding:.3em .65em .3em .55em;border:1px solid color-mix(in srgb,var(--c,#121618) 55%,transparent);background:color-mix(in srgb,var(--c,#121618) 9%,transparent);border-radius:999px}.ds-ref::before{content:'';width:.55em;height:.55em;border-radius:50%;background:var(--c,#121618)}"
+    },
+    {
+      "name": "Garden Map Row",
+      "kind": "custom",
+      "refersTo": "commit-row",
+      "description": "Commit row: gutter with lane rail and node, hash, pill, bold title, date; hover lights the lane.",
+      "html": "<ol class=\"ds-log\"><li class=\"ds-row\"><span class=\"ds-gut\"><span class=\"ds-line\" style=\"left:7.25px;background:#121618\"></span><span class=\"ds-line\" style=\"left:21.25px;background:#c42a5c\"></span><span class=\"ds-node\" style=\"left:22px;background:#c42a5c\"></span></span><a class=\"ds-msg\" href=\"#\"><code class=\"ds-hash\">d4059ac</code><span class=\"ds-title\">reflog</span></a><time class=\"ds-date\">2026-09-21</time></li><li class=\"ds-row\"><span class=\"ds-gut\"><span class=\"ds-line\" style=\"left:7.25px;background:#121618\"></span><span class=\"ds-node ds-stub\" style=\"left:36px;--c:#0a7d6f\"></span></span><span class=\"ds-msg\"><span class=\"ds-note\">branch created, nothing committed yet</span></span></li></ol>",
+      "css": ".ds-log{list-style:none;margin:0;padding:0;background:#f4f6f5;font-family:'Atkinson Hyperlegible Next',system-ui,sans-serif;color:#2b3133}.ds-row{display:grid;grid-template-columns:72px minmax(0,1fr) auto;align-items:center;column-gap:.75rem;min-height:2.9rem}.ds-gut{position:relative;align-self:stretch}.ds-line{position:absolute;top:0;bottom:0;width:1.5px;transition:width .25s cubic-bezier(.16,1,.3,1)}.ds-node{position:absolute;top:50%;width:11px;height:11px;translate:-50% -50%;border-radius:50%;box-shadow:0 0 0 3px #f4f6f5;transition:scale .25s cubic-bezier(.16,1,.3,1)}.ds-stub{background:#f4f6f5;box-shadow:0 0 0 1.5px var(--c) inset,0 0 0 3px #f4f6f5}.ds-msg{display:flex;gap:.65rem;align-items:center;padding:.55rem 0;text-decoration:none;color:inherit}.ds-hash{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#626b68}.ds-title{font-weight:700;color:#121618;text-decoration:underline;text-decoration-color:transparent;text-decoration-thickness:.08em;text-underline-offset:.22em;transition:text-decoration-color .2s}.ds-row:hover .ds-title,.ds-msg:focus-visible .ds-title{text-decoration-color:#1f4fd1}.ds-row:hover .ds-node{scale:1.35}.ds-msg:focus-visible{outline:2px solid #1f4fd1;outline-offset:3px;border-radius:3px}.ds-date{font-family:'JetBrains Mono',monospace;font-size:.75rem;font-variant-numeric:tabular-nums;color:#626b68}.ds-note{color:#626b68;font-style:italic;font-size:.95rem}"
+    },
+    {
+      "name": "Link",
+      "kind": "custom",
+      "refersTo": "link",
+      "description": "Ink text with a 45% blue underline; full blue on hover.",
+      "html": "<p class=\"ds-p\">first post. <a class=\"ds-link\" href=\"#\">a little poem</a> so you can reflect.</p>",
+      "css": ".ds-p{font-family:'Atkinson Hyperlegible Next',system-ui,sans-serif;font-size:1.0625rem;line-height:1.65;color:#2b3133}.ds-link{font-weight:700;color:#121618;text-decoration:underline;text-decoration-color:color-mix(in srgb,#1f4fd1 45%,transparent);text-decoration-thickness:.08em;text-underline-offset:.22em;transition:color .2s cubic-bezier(.16,1,.3,1),text-decoration-color .2s cubic-bezier(.16,1,.3,1)}.ds-link:hover{color:#1f4fd1;text-decoration-color:#1f4fd1}.ds-link:focus-visible{outline:2px solid #1f4fd1;outline-offset:3px;border-radius:3px}"
+    },
+    {
+      "name": "Search Button",
+      "kind": "button",
+      "refersTo": "search-button",
+      "description": "Transparent pill in the top bar; border darkens on hover.",
+      "html": "<button class=\"ds-search\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"m20 20-4-4\"/></svg><span>Search</span></button>",
+      "css": ".ds-search{display:inline-flex;align-items:center;gap:.5rem;height:2.2rem;padding:0 .85rem;border:1px solid #dde2e0;border-radius:999px;background:transparent;color:#626b68;font-family:'Atkinson Hyperlegible Next',system-ui,sans-serif;font-size:.9rem;cursor:pointer;transition:border-color .2s cubic-bezier(.16,1,.3,1)}.ds-search:hover{border-color:#626b68}.ds-search:focus-visible{outline:2px solid #1f4fd1;outline-offset:3px}"
+    },
+    {
+      "name": "Top Bar",
+      "kind": "nav",
+      "refersTo": "explorer-drawer",
+      "description": "Drawer toggle, site name, search pill and toggles above the reading column.",
+      "html": "<nav class=\"ds-bar\"><button class=\"ds-menu\" aria-label=\"Explorer\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M4 6h16M4 12h16M4 18h16\"/></svg></button><a class=\"ds-name\" href=\"#\">Jay Parmar</a></nav>",
+      "css": ".ds-bar{display:flex;align-items:center;gap:.75rem;padding:1.4rem 0 0;background:#f4f6f5}.ds-menu{background:none;border:0;padding:.3rem;color:#2b3133;cursor:pointer}.ds-menu:hover{color:#121618}.ds-menu:focus-visible,.ds-name:focus-visible{outline:2px solid #1f4fd1;outline-offset:3px;border-radius:3px}.ds-name{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:1.35rem;font-weight:800;letter-spacing:-.035em;line-height:1;color:#121618;text-decoration:none}"
+    },
+    {
+      "name": "Popover",
+      "kind": "card",
+      "refersTo": "popover",
+      "description": "Link preview with a defined 1px edge and no shadow.",
+      "html": "<div class=\"ds-pop\"><strong>reflog</strong><p>She was my origin, my source of truth.</p></div>",
+      "css": ".ds-pop{max-width:20rem;padding:1rem;background:#f4f6f5;border:1px solid #626b68;border-radius:8px;box-shadow:none;font-family:'Atkinson Hyperlegible Next',system-ui,sans-serif;color:#2b3133}.ds-pop strong{font-family:'Bricolage Grotesque',system-ui,sans-serif;color:#121618}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Commit Graph",
+    "overview": "The garden is a repository history read as `git log --graph`. The home intro is the HEAD commit, each kind of writing is a branch lane, and each note is a commit row; a note page reads like `git show`. The ground is a light, slightly cool pager with near-black ink, and the only saturated colour on any screen belongs to the lanes: their lines, their nodes and their ref pills. With all text removed the site is still recognisable: thin coloured rails, filled round nodes and soft pills on a pale ground.\n\nEverything sits in one centred reading column under a slim top bar (drawer toggle, name, search pill, theme and reader toggles). There are no sidebars of widgets: the explorer is a drawer at every width, and graph view, backlinks and the footer follow the note. Density is calm and literary; the git vocabulary is carried by structure (rails, nodes, hashes, header lines) rather than by terminal costume. The world refuses the stock three-column template and the green-on-black hacker terminal.\n\nMotion is a single gesture: on load, main draws down from the HEAD node and the map's gutters reveal top to bottom in a stagger; pointing at a commit lights its lane and main while the other lanes recede. All of it switches off under reduced motion.",
+    "keyCharacteristics": [
+      "One 46rem reading column, slim top bar, explorer as an overlay drawer.",
+      "Four lane inks, used only for rails, nodes and ref pills.",
+      "Grotesque display, humanist body, mono only for machine text (hashes, dates, refs, graph commands, header lines).",
+      "Flat: depth comes from hairlines and dashed rules, never shadows.",
+      "Lowercase, playful voice carried by real git structure."
+    ],
+    "rules": [
+      {
+        "name": "The Lanes Only Rule",
+        "body": "Lane inks appear only as rails, commit nodes and ref pills (pill border at 55%, fill at 9%). Never as text colour, backgrounds, buttons or headings.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Blue Rule",
+        "body": "Link Blue is the only interaction colour; links are ink text with a blue underline, never highlighter blocks.",
+        "section": "colors"
+      },
+      {
+        "name": "The Machine Text Rule",
+        "body": "Mono is for what git would print: hashes, dates, ref labels, commands and header lines. Prose, titles, buttons and navigation never use it.",
+        "section": "typography"
+      },
+      {
+        "name": "The Header Lines Rule",
+        "body": "A note's metadata sits under its title as commit header lines (`commit <hash> (ref)`, `tags: #…`, `Date: …`). Nothing sits above a title except the breadcrumb path; no eyebrows or kickers.",
+        "section": "typography"
+      },
+      {
+        "name": "The Defined Edge Rule",
+        "body": "Overlays get a hairline edge on a dimmed page, never a glow, blur or floating shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep lane inks on rails, nodes and ref pills only.",
+      "**Do** derive every rail and node position from the 8px pad / 14px gap / 1.5px rail geometry so CSS and the plugin agree.",
+      "**Do** show empty lanes as honest stubs with hollow nodes, never invented posts.",
+      "**Do** put note metadata under the title as mono commit header lines.",
+      "**Do** give overlays a 1px edge on a dimmed page, with no shadow.",
+      "**Do** collapse the graph to the single main gutter on mobile and let pills carry the lane.",
+      "**Do** honour reduced motion by dropping the draw, reveal and drawer transitions."
+    ],
+    "donts": [
+      "**Don't** set prose, headings, buttons or navigation in mono.",
+      "**Don't** place eyebrows, kickers or labels above a title.",
+      "**Don't** reintroduce the three-column sidebar layout or fixed side widgets.",
+      "**Don't** use the green-on-black terminal look.",
+      "**Don't** add drop shadows, glows or backdrop blur.",
+      "**Don't** use highlighter-block link backgrounds."
+    ]
+  }
+}
