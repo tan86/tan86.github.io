@@ -935,7 +935,12 @@ body[data-slug^="poems/"] article p {
   padding: 0;
   margin: 0;
 
-  & li {
+  // Quartz's empty overflow sentinel is not a commit
+  & li.overflow-end {
+    margin: 0;
+  }
+
+  & li:not(.overflow-end) {
     display: flex;
     align-items: center;
     gap: 0.6rem;
