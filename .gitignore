@@ -14,3 +14,5 @@ quartz/cli/tui/dist/
 .turbo/
 .impeccable/questions/
 .impeccable/config.local.json
+quartz.lock.json
+.impeccable/review/

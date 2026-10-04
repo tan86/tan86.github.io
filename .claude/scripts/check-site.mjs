@@ -35,7 +35,9 @@ mkdirSync(outDir, { recursive: true })
 
 // The body font the site should render with, from quartz.config.yaml.
 const config = readFileSync(join(here, "../../quartz.config.yaml"), "utf8")
-const bodyFont = /^\s*body:\s*(.+)$/m.exec(config)?.[1].trim().replace(/^["']|["']$/g, "")
+// typography.body is either `body: Name` or an object with `name: Name` on the next lines
+const bodyMatch = /^\s*body:[ \t]*(\S.*)?$(?:\n\s+name:\s*(.+)$)?/m.exec(config)
+const bodyFont = (bodyMatch?.[1] || bodyMatch?.[2] || "").trim().replace(/^["']|["']$/g, "")
 
 const s = await openPage()
 const { page } = s

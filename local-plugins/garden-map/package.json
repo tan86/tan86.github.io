@@ -1,0 +1,31 @@
+{
+  "name": "garden-map",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    },
+    "./components": {
+      "import": "./dist/components/index.js"
+    }
+  },
+  "quartz": {
+    "name": "garden-map",
+    "displayName": "Garden Map",
+    "category": "component",
+    "version": "0.1.0",
+    "quartzVersion": ">=5.0.0",
+    "components": {
+      "GardenMap": {
+        "name": "GardenMap",
+        "displayName": "Garden Map",
+        "description": "Home-page map of notes as a git log --graph, one lane per kind.",
+        "version": "0.1.0",
+        "defaultPosition": "afterBody",
+        "defaultPriority": 10
+      }
+    }
+  }
+}

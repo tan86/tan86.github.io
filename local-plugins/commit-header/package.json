@@ -1,0 +1,31 @@
+{
+  "name": "commit-header",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    },
+    "./components": {
+      "import": "./dist/components/index.js"
+    }
+  },
+  "quartz": {
+    "name": "commit-header",
+    "displayName": "Commit Header",
+    "category": "component",
+    "version": "0.1.0",
+    "quartzVersion": ">=5.0.0",
+    "components": {
+      "CommitHeader": {
+        "name": "CommitHeader",
+        "displayName": "Commit Header",
+        "description": "git show style commit line above each note's title.",
+        "version": "0.1.0",
+        "defaultPosition": "beforeBody",
+        "defaultPriority": 8
+      }
+    }
+  }
+}

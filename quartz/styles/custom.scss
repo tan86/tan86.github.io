@@ -1,8 +1,863 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+// Commit Graph world: the garden read as `git log --graph`.
+// Direction contract: .impeccable/surfaces/content-index-md.md.
+// Theme tokens (--light, --dark, --secondary...) and faces live in
+// quartz.config.yaml; everything else is here. This file is unlayered, so it
+// wins over plugin CSS without !important.
 
-// Keep the footer links, but remove Quartz's generated attribution line.
-//#quartz-body footer > p {
-//  display: none;
-//}
+// ---------------------------------------------------------------------------
+// Tokens
+// ---------------------------------------------------------------------------
+
+:root {
+  // one ink per lane; only lines, nodes and ref pills use them
+  --lane-main: var(--dark);
+  --lane-poems: #c42a5c;
+  --lane-tech: #0a7d6f;
+  --lane-essays: #9a6108;
+  --lane-logs: #6a3dd1;
+
+  // graph gutter geometry; --gm-pad / --gm-gap match garden-map's PAD / GAP
+  --gm-pad: 8px;
+  --gm-gap: 14px;
+  --gm-gutter: 72px;
+  --rail: 1.5px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root[saved-theme="dark"] {
+  --lane-poems: #f0709a;
+  --lane-tech: #3ccfb9;
+  --lane-essays: #f2b648;
+  --lane-logs: #a98bf5;
+}
+
+body[data-slug^="poems/"] {
+  --lane: var(--lane-poems);
+}
+body[data-slug^="tech/"] {
+  --lane: var(--lane-tech);
+}
+body[data-slug^="essays/"] {
+  --lane: var(--lane-essays);
+}
+body[data-slug^="logs/"] {
+  --lane: var(--lane-logs);
+}
+
+// ---------------------------------------------------------------------------
+// Browser surfaces
+// ---------------------------------------------------------------------------
+
+html {
+  scrollbar-color: var(--lightgray) transparent;
+  accent-color: var(--secondary);
+}
+
+body {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  caret-color: var(--secondary);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--secondary) 22%, transparent);
+  color: var(--dark);
+}
+
+:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+// ---------------------------------------------------------------------------
+// Layout: one reading column with the repo header at its left; graph,
+// backlinks and the rest follow the note instead of flanking it.
+// ---------------------------------------------------------------------------
+
+.page {
+  max-width: 76rem;
+}
+
+.page > #quartz-body {
+  grid-template-columns: 15rem minmax(0, 44rem);
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "grid-sidebar-left grid-center"
+    "grid-sidebar-left grid-sidebar-right"
+    "grid-sidebar-left grid-footer";
+  justify-content: center;
+  column-gap: clamp(2.5rem, 6vw, 6rem);
+  row-gap: 0;
+
+  @media all and ($tablet) {
+    grid-template-columns: 13rem minmax(0, 1fr);
+    grid-template-areas:
+      "grid-sidebar-left grid-center"
+      "grid-sidebar-left grid-sidebar-right"
+      "grid-sidebar-left grid-footer";
+    column-gap: 2.5rem;
+  }
+
+  @media all and ($mobile) {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "grid-sidebar-left"
+      "grid-center"
+      "grid-sidebar-right"
+      "grid-footer";
+    padding: 0 1.25rem;
+  }
+
+  & .center {
+    grid-area: grid-center;
+    position: relative;
+    box-sizing: border-box;
+    padding-top: 4.5rem;
+
+    @media all and ($mobile) {
+      padding-top: 1.5rem;
+    }
+  }
+
+  & .page-header {
+    margin-top: 0;
+  }
+
+  & .sidebar.left {
+    padding: 4.5rem 0 2rem;
+    gap: 1.5rem;
+
+    @media all and ($mobile) {
+      padding: 1.25rem 0 0;
+      gap: 0.75rem;
+    }
+  }
+
+  & .sidebar.right {
+    position: static;
+    height: auto;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+    padding: 0;
+    margin-top: 3.5rem;
+
+    & > * {
+      flex: 1 1 16rem;
+      min-width: 0;
+      max-height: none;
+    }
+
+    & > .toc {
+      display: none;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Type
+// ---------------------------------------------------------------------------
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--headerFont);
+  color: var(--dark);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: 1.55rem;
+  font-weight: 600;
+  margin: 2.5rem 0 0.75rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.page article > h1,
+h1.article-title {
+  font-size: clamp(2.1rem, 1.4rem + 2.6vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  margin: 0.6rem 0 0.75rem;
+}
+
+strong,
+.page article p > strong {
+  font-weight: 700;
+  color: var(--dark);
+}
+
+article p,
+article li {
+  color: var(--darkgray);
+}
+
+code {
+  border-radius: 4px;
+}
+
+// links: ink text with a blue underline, no highlighter blocks
+a {
+  font-weight: 700;
+  color: var(--dark);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--secondary) 45%, transparent);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.22em;
+  transition:
+    color 0.2s var(--ease-out),
+    text-decoration-color 0.2s var(--ease-out);
+
+  &:hover {
+    color: var(--secondary);
+    text-decoration-color: var(--secondary);
+  }
+
+  &.internal {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    line-height: inherit;
+    text-decoration: underline;
+  }
+}
+
+.external-icon {
+  opacity: 0.55;
+}
+
+blockquote {
+  margin: 1.75rem 0;
+  padding: 0.1rem 0 0.1rem 1.1rem;
+  border-left: 1px solid var(--gray);
+  color: var(--darkgray);
+}
+
+hr {
+  height: 0;
+  background: none;
+  border-top: 1px dashed var(--lightgray);
+  margin: 2.5rem 0;
+}
+
+// ---------------------------------------------------------------------------
+// Ref pills and the commit line (shared by the header and the garden map)
+// ---------------------------------------------------------------------------
+
+.gm-ref {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: var(--codeFont);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--dark);
+  white-space: nowrap;
+  padding: 0.3em 0.65em 0.3em 0.55em;
+  border: 1px solid color-mix(in srgb, var(--c, var(--dark)) 55%, transparent);
+  background: color-mix(in srgb, var(--c, var(--dark)) 9%, transparent);
+  border-radius: 999px;
+
+  &::before {
+    content: "";
+    width: 0.55em;
+    height: 0.55em;
+    border-radius: 50%;
+    background: var(--c, var(--dark));
+  }
+}
+
+.commit-line {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.6rem;
+  margin: 0;
+  font-family: var(--codeFont);
+  font-size: 0.8rem;
+  color: var(--gray);
+
+  & .cl-hash {
+    background: none;
+    padding: 0;
+    font-size: inherit;
+    color: var(--dark);
+    font-weight: 600;
+  }
+
+  & .cl-node {
+    display: none;
+  }
+}
+
+.content-meta {
+  font-family: var(--codeFont);
+  font-size: 0.8rem;
+  color: var(--gray);
+  margin: 0 0 2rem;
+
+  & time::before {
+    content: "Date: ";
+  }
+}
+
+// frontmatter properties read as extra commit header lines: "tags  #git"
+.note-properties {
+  border: none;
+  background: none;
+  margin: 0 0 0.25rem;
+  padding: 0;
+
+  & > summary {
+    display: none;
+  }
+
+  & table {
+    width: auto;
+    margin: 0;
+    border-collapse: collapse;
+    font-family: var(--codeFont);
+    font-size: 0.8rem;
+  }
+
+  & tr,
+  & td {
+    border: none;
+    background: none;
+    padding: 0 1rem 0 0;
+  }
+
+  & .note-properties-key {
+    color: var(--gray);
+    width: auto;
+  }
+
+  & .note-properties-key::after {
+    content: ":";
+  }
+
+  & a.tag-link {
+    font-size: inherit;
+    font-weight: 400;
+    color: var(--darkgray);
+  }
+}
+
+// breadcrumbs read as a path: home / poems / reflog
+.breadcrumb-container {
+  font-family: var(--codeFont);
+  font-size: 0.8rem;
+  margin: 0 0 1rem;
+
+  & .breadcrumb-element {
+    gap: 0;
+
+    & a {
+      font-weight: 400;
+      color: var(--gray);
+      text-decoration: none;
+      &:hover {
+        color: var(--secondary);
+      }
+    }
+
+    & p {
+      margin: 0 0.45em;
+      color: var(--gray);
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Home: the intro is the HEAD commit, and main runs from it into the log
+// ---------------------------------------------------------------------------
+
+body[data-slug="index"] {
+  & #quartz-body .center {
+    padding-left: 2.25rem;
+
+    // main: from the HEAD node down to the garden map's root row
+    &::before {
+      content: "";
+      position: absolute;
+      left: calc(var(--gm-pad) - var(--rail) / 2);
+      top: calc(4.5rem + 0.75rem);
+      bottom: 1.4rem;
+      width: var(--rail);
+      background: var(--lane-main);
+      transform-origin: top;
+      animation: gm-grow 0.9s var(--ease-out) both;
+
+      @media all and ($mobile) {
+        top: calc(1.5rem + 0.75rem);
+      }
+    }
+
+    & > hr {
+      display: none;
+    }
+  }
+
+  & .commit-line .cl-node {
+    display: block;
+    position: absolute;
+    left: calc(-2.25rem + var(--gm-pad));
+    top: 50%;
+    width: 13px;
+    height: 13px;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background: var(--lane-main);
+    box-shadow:
+      0 0 0 3px var(--light),
+      0 0 0 4.5px var(--lane-main);
+  }
+
+  & h1.article-title {
+    margin-top: 0.9rem;
+  }
+
+  & article > p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+
+  & article h2 {
+    font-size: 1.15rem;
+    margin-top: 2rem;
+  }
+
+  & article ul {
+    padding-left: 1.1rem;
+  }
+}
+
+@keyframes gm-grow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Garden map
+// ---------------------------------------------------------------------------
+
+.garden-map {
+  margin: 3.5rem 0 0 -2.25rem;
+
+  & .gm-head {
+    padding-left: calc(var(--gm-gutter) + 0.75rem);
+
+    & h2 {
+      margin: 0;
+      font-size: 1.55rem;
+      font-weight: 800;
+    }
+  }
+
+  & .gm-cmd {
+    margin: 0.2rem 0 1.25rem;
+
+    & code {
+      background: none;
+      padding: 0;
+      font-size: 0.78rem;
+      color: var(--gray);
+    }
+  }
+}
+
+.gm-log {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gm-row {
+  display: grid;
+  grid-template-columns: var(--gm-gutter) minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 0.75rem;
+  min-height: 2.9rem;
+  margin: 0;
+  padding: 0 0.25rem 0 0;
+}
+
+.gm-gutter {
+  position: relative;
+  align-self: stretch;
+  animation: gm-reveal 0.6s var(--ease-out) both;
+  animation-delay: calc(0.15s + var(--i, 0) * 70ms);
+}
+
+@keyframes gm-reveal {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.gm-line {
+  position: absolute;
+  left: calc(var(--gm-pad) + var(--col) * var(--gm-gap) - var(--rail) / 2);
+  top: 0;
+  bottom: 0;
+  width: var(--rail);
+  background: var(--c);
+  transition:
+    opacity 0.25s var(--ease-out),
+    width 0.25s var(--ease-out);
+
+  &[data-part="bottom"] {
+    top: 50%;
+  }
+}
+
+.gm-node {
+  position: absolute;
+  left: calc(var(--gm-pad) + var(--col) * var(--gm-gap));
+  top: 50%;
+  width: 11px;
+  height: 11px;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: 0 0 0 3px var(--light);
+  transition: scale 0.25s var(--ease-out);
+}
+
+.gm-fork {
+  position: absolute;
+  inset: 0 auto 0 0;
+  overflow: visible;
+
+  & path {
+    fill: none;
+    stroke-width: 1.5;
+    vector-effect: non-scaling-stroke;
+    transition: opacity 0.25s var(--ease-out);
+  }
+}
+
+.gm-msg,
+a.gm-msg.internal {
+  text-decoration: none;
+}
+
+.gm-msg {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 0.65rem;
+  padding: 0.55rem 0;
+  min-width: 0;
+  font-weight: 400;
+  color: var(--darkgray);
+  text-decoration: none;
+}
+
+.gm-hash {
+  background: none;
+  padding: 0;
+  font-size: 0.78rem;
+  color: var(--gray);
+}
+
+.gm-title {
+  font-weight: 700;
+  color: var(--dark);
+}
+
+a.gm-msg .gm-title {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.22em;
+  transition: text-decoration-color 0.2s var(--ease-out);
+}
+
+a.gm-msg:hover .gm-title,
+a.gm-msg:focus-visible .gm-title {
+  text-decoration-color: var(--secondary);
+}
+
+.gm-date {
+  font-family: var(--codeFont);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--gray);
+  white-space: nowrap;
+}
+
+.gm-note {
+  color: var(--gray);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.gm-stub .gm-node {
+  background: var(--light);
+  box-shadow:
+    0 0 0 1.5px var(--c) inset,
+    0 0 0 3px var(--light);
+}
+
+.gm-root {
+  min-height: 3rem;
+
+  & .gm-node {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+// signature: pointing at a commit lights its lane and main; the rest recede
+@each $lane in (poems, tech, essays, logs) {
+  .garden-map:has(.gm-commit[data-lane="#{$lane}"]:is(:hover, :focus-within)) {
+    & .gm-line:not([data-lane="#{$lane}"], [data-lane="main"]),
+    & .gm-fork path:not([data-lane="#{$lane}"], [data-lane="main"]) {
+      opacity: 0.18;
+    }
+    & .gm-line[data-lane="#{$lane}"] {
+      width: 2.5px;
+    }
+    & .gm-row:not([data-lane="#{$lane}"], .gm-root) .gm-node {
+      opacity: 0.35;
+    }
+  }
+}
+
+.gm-commit:is(:hover, :focus-within) .gm-node {
+  scale: 1.35;
+}
+
+@media all and ($mobile) {
+  :root {
+    --gm-gutter: 72px;
+  }
+
+  .gm-row {
+    grid-template-columns: var(--gm-gutter) minmax(0, 1fr);
+  }
+
+  .gm-date {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gm-gutter,
+  body[data-slug="index"] #quartz-body .center::before {
+    animation: none;
+  }
+  .gm-line,
+  .gm-node,
+  .gm-fork path {
+    transition: none;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Note pages: lane-coloured commit node beside the title, poems set larger
+// ---------------------------------------------------------------------------
+
+body:not([data-slug="index"]) .commit-line {
+  &::before {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--lane, var(--lane-main));
+  }
+}
+
+body[data-slug^="poems/"] article p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--dark);
+}
+
+// folder pages (poems/, tech/...) list notes as commit rows on their lane
+.page-listing {
+  & .section-ul {
+    border-left: var(--rail) solid var(--lane, var(--lane-main));
+    margin-left: 0.3rem;
+    padding-left: 0;
+  }
+
+  & .section-li {
+    position: relative;
+    padding: 0.35rem 0 0.35rem 1.4rem;
+    margin: 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: calc(var(--rail) / -2);
+      top: 1.15rem;
+      width: 11px;
+      height: 11px;
+      translate: -50% -50%;
+      border-radius: 50%;
+      background: var(--lane, var(--lane-main));
+      box-shadow: 0 0 0 3px var(--light);
+    }
+
+    & .meta {
+      font-family: var(--codeFont);
+      font-size: 0.75rem;
+      color: var(--gray);
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Sidebar: repo header, toolbar, branch list
+// ---------------------------------------------------------------------------
+
+.page-title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1;
+
+  & a {
+    color: var(--dark);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  @media all and ($mobile) {
+    font-size: 1.3rem;
+  }
+}
+
+.search .search-button {
+  border: 1px solid var(--lightgray);
+  border-radius: 999px;
+  background: transparent;
+  height: 2.2rem;
+  padding: 0 0.8rem;
+  transition: border-color 0.2s var(--ease-out);
+
+  & p {
+    font-family: var(--codeFont);
+    font-size: 0.78rem;
+    color: var(--gray);
+  }
+
+  &:hover {
+    border-color: var(--gray);
+  }
+}
+
+.darkmode,
+.readermode {
+  color: var(--darkgray);
+
+  & svg {
+    fill: currentColor;
+  }
+
+  &:hover {
+    color: var(--dark);
+  }
+}
+
+.explorer {
+  & .title-button h2,
+  & .explorer-toggle h2 {
+    font-family: var(--codeFont);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--gray);
+    letter-spacing: 0;
+    margin: 0;
+  }
+
+  & a,
+  & .nav-file-title,
+  & .folder-title {
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--darkgray);
+
+    &:hover {
+      color: var(--secondary);
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// After the note: graph, backlinks, footer
+// ---------------------------------------------------------------------------
+
+.right.sidebar h3,
+.backlinks > h3 {
+  font-family: var(--codeFont);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--gray);
+  margin: 0 0 0.6rem;
+}
+
+.graph > .graph-outer {
+  border: 1px solid var(--lightgray);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--lightgray) 22%, transparent);
+}
+
+.backlinks ul li > a {
+  background: none;
+}
+
+#quartz-body > footer,
+#quartz-body footer {
+  margin: 4rem 0 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed var(--lightgray);
+  font-family: var(--codeFont);
+  font-size: 0.75rem;
+  color: var(--gray);
+  opacity: 1;
+
+  // the pager's end marker
+  &::before {
+    content: "(END)";
+    display: inline-block;
+    padding: 0 0.35rem;
+    margin-bottom: 0.75rem;
+    background: var(--dark);
+    color: var(--light);
+  }
+
+  & p {
+    margin: 0 0 0.4rem;
+  }
+
+  & a {
+    font-weight: 400;
+  }
+}

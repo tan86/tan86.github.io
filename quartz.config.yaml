@@ -15,30 +15,37 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: EB Garamond
-      body: Source Sans Pro
-      code: IBM Plex Mono
+      header:
+        name: Bricolage Grotesque
+        weights: [600, 800]
+      body:
+        name: Atkinson Hyperlegible Next
+        weights: [400, 700]
+        includeItalic: true
+      code:
+        name: JetBrains Mono
+        weights: [400, 600]
     colors:
       lightMode:
-        light: "#faf8f8"
-        lightgray: "#e5e5e5"
-        gray: "#b8b8b8"
-        darkgray: "#4e4e4e"
-        dark: "#2b2b2b"
-        secondary: "#284b63"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: "#fff23688"
+        light: "#f4f6f5"
+        lightgray: "#dde2e0"
+        gray: "#626b68"
+        darkgray: "#2b3133"
+        dark: "#121618"
+        secondary: "#1f4fd1"
+        tertiary: "#0a7d6f"
+        highlight: rgba(31, 79, 209, 0.08)
+        textHighlight: "#ffd84a66"
       darkMode:
-        light: "#161618"
-        lightgray: "#393639"
-        gray: "#646464"
-        darkgray: "#d4d4d4"
-        dark: "#ebebec"
-        secondary: "#7b97aa"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: "#b3aa0288"
+        light: "#111416"
+        lightgray: "#262c30"
+        gray: "#8d979c"
+        darkgray: "#cdd4d8"
+        dark: "#eef2f4"
+        secondary: "#8fb0ff"
+        tertiary: "#3ccfb9"
+        highlight: rgba(143, 176, 255, 0.1)
+        textHighlight: "#ffd84a40"
 plugins:
   - source: "@quartz-community/created-modified-date"
     enabled: true
@@ -204,6 +211,9 @@ plugins:
       group: toolbar
   - source: "@quartz-community/breadcrumbs"
     enabled: true
+    options:
+      spacerSymbol: /
+      rootName: home
     layout:
       position: beforeBody
       priority: 5
@@ -256,6 +266,19 @@ plugins:
       position: beforeBody
       priority: 15
       display: all
+  - source: ./local-plugins/commit-header
+    enabled: true
+    options:
+      lanes: [poems, tech, essays, logs]
+      head: HEAD → jay
+    layout:
+      position: beforeBody
+      priority: 8
+  - source: ./local-plugins/garden-map
+    enabled: true
+    layout:
+      position: afterBody
+      priority: 10
 layout:
   groups:
     toolbar:
