@@ -1,8 +1,6 @@
 ---
-title: Welcome to my Digital Garden
+title: Jay Parmar
 ---
-
-Hey there! I'm **Jay Parmar**.
 
 ## Connect
 
