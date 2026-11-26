@@ -4,7 +4,9 @@ configuration:
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
-  analytics: null
+  analytics:
+    provider: goatcounter
+    websiteId: jayparmar
   locale: en-US
   baseUrl: jayparmar.cc
   ignorePatterns:
